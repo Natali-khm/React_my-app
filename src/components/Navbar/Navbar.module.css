@@ -1,0 +1,18 @@
+.nav {
+  grid-area: n;
+  background-color: #85b5b2;
+  border-radius: 10px;
+}
+
+.navList {
+  list-style: none;
+}
+
+.navList a {
+  text-decoration: none;
+  color: white;
+}
+
+.item.active {
+  color: rgb(83, 82, 82);
+}

@@ -1,0 +1,31 @@
+.content {
+  grid-area: c;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+.backgroundImage {
+  max-width: 100%;
+}
+
+.personalData {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.personalData h2 {
+  margin-top: 0;
+}
+
+.personalDataList {
+  list-style: none;
+  padding: 0;
+}
+
+.avatar {
+  width: 60px;
+  background-color: rgb(208, 186, 41);
+  vertical-align: top;
+  margin-top: 10px;
+}
