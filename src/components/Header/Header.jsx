@@ -4,7 +4,10 @@ import s from "./Header.module.css";
 const Header = () => {
   return (
     <header className={s.header}>
-      <img src="logo.png" />
+      <div className={s.logoBlock}>
+        <img src="logo.png" />
+        SocialV
+      </div>
     </header>
   );
 };

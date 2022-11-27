@@ -1,34 +1,50 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
     <nav className={s.nav}>
       <ul className={s.navList}>
-        <li>
-          <a className={s.item} href="#">
+        <li className={s.item}>
+          <NavLink
+            className={(navData) => (navData.isActive ? s.active : s.item)}
+            to="/profile"
+          >
             Profile
-          </a>
+          </NavLink>
         </li>
-        <li>
-          <a className={s.item} href="#">
+        <li className={s.item}>
+          <NavLink
+            className={(navData) => (navData.isActive ? s.active : s.item)}
+            to="/dialogs"
+          >
             Messages
-          </a>
+          </NavLink>
         </li>
-        <li>
-          <a className={s.item} href="#">
+        <li className={s.item}>
+          <NavLink
+            className={(navData) => (navData.isActive ? s.active : s.item)}
+            to="/news"
+          >
             News
-          </a>
+          </NavLink>
         </li>
-        <li>
-          <a className={`${s.item} ${s.active}`} href="#">
+        <li className={s.item}>
+          <NavLink
+            className={(navData) => (navData.isActive ? s.active : s.item)}
+            to="/music"
+          >
             Music
-          </a>
+          </NavLink>
         </li>
-        <li>
-          <a className={s.item} href="#">
+        <li className={s.item}>
+          <NavLink
+            className={(navData) => (navData.isActive ? s.active : s.item)}
+            to="/settings"
+          >
             Settings
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
