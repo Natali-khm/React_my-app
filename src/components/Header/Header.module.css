@@ -2,7 +2,7 @@
   grid-area: h;
   border: 3px solid #a8bed1;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 20px;
   color: rgb(44, 130, 210);
   margin-top: auto;
   margin-bottom: auto;
@@ -10,7 +10,7 @@
 
 .logoBlock img {
   margin-right: 10px;
-  width: 50px;
+  width: 30px;
   vertical-align: middle;
 }
 
