@@ -2,10 +2,11 @@
   grid-area: h;
   border: 3px solid #a8bed1;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 17px;
   color: rgb(44, 130, 210);
   margin-top: auto;
   margin-bottom: auto;
+  padding: 5px;
 }
 
 .logoBlock img {
@@ -15,7 +16,7 @@
 }
 
 .logoBlock {
-  box-shadow: 0px 0px 10px rgb(94, 91, 91);
+  box-shadow: 0px 0px 10px rgb(140, 135, 135);
   display: inline-block;
   margin-left: 35px;
   border-radius: 10px;

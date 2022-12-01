@@ -6,7 +6,10 @@ const ProfileInfo = () => {
     <div>
       <img className={s.backgroundImage} src="banner.jpg" />
       <div className={s.descriptionBlock}>
-        <img className={s.avatar} src="40060.svg" />
+        <div className={s.avatarBlock}>
+          <img className={s.avatarImage} src="avatar.jpg" />
+        </div>
+
         <div className={s.personalData}>
           <h2>Natka</h2>
           <ul className={s.personalDataList}>
