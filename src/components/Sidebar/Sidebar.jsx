@@ -1,7 +1,7 @@
 import s from "./Sidebar.module.css";
 
 const Sidebar = (props) => {
-  const friends = props.state.map((friend) => (
+  const friends = props.sidebar.map((friend) => (
     <a href="#" key={friend.id} className={s.friend}>
       <div className={s.friendBlock}>
         <div className={s.avatarBlock}>

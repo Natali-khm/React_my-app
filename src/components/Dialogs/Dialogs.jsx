@@ -11,7 +11,7 @@ const Dialogs = (props) => {
     let text = newMessage.current.value;
     alert(text);
   };
-  let dialogsElements = props.state.dialogsData.map((dialog) => (
+  let dialogsElements = props.dialogsPage.dialogsData.map((dialog) => (
     <DialogItem
       name={dialog.name}
       id={dialog.id}
@@ -20,7 +20,7 @@ const Dialogs = (props) => {
     />
   ));
 
-  let messagesElements = props.state.messagesData.map((text, index) => (
+  let messagesElements = props.dialogsPage.messagesData.map((text, index) => (
     <Message text={text.message} key={index} />
   ));
 
