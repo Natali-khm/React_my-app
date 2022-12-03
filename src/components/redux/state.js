@@ -27,10 +27,14 @@ const store = {
       { id: 3, name: "Tima", avatar: "tima.jpg" },
     ],
   },
+  _callSubscriber() {},
   getState() {
     return this._state;
   },
-  addPost() {
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+  _addPost() {
     let newPost = {
       id: 5,
       message: this._state.profilePage.newPostText,
@@ -41,14 +45,18 @@ const store = {
 
     this._callSubscriber(this._state);
   },
-  updateNewPostText(newText) {
+  _updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
     this._callSubscriber(this._state);
   },
-  subscribe(observer) {
-    this._callSubscriber = observer;
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      this._addPost();
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._updateNewPostText(action.newNext);
+    }
   },
-  _callSubscriber() {},
 };
 
 export default store;
