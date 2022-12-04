@@ -12,7 +12,6 @@ function App(props) {
   return (
     <div className="app-wrapper">
       <Header />
-
       <Navbar sidebar={props.state.sidebar} />
       <div className="app-wrapper-content">
         <Routes>
@@ -27,7 +26,12 @@ function App(props) {
           />
           <Route
             path="/dialogs/*"
-            element={<Dialogs dialogsPage={props.state.dialogsPage} />}
+            element={
+              <Dialogs
+                dialogsPage={props.state.dialogsPage}
+                dispatch={props.dispatch}
+              />
+            }
           />
           <Route path="/news/*" element={<News />} />
           <Route path="/music/*" element={<Music />} />
