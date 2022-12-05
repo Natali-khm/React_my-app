@@ -10,7 +10,23 @@ export const updateNewMessageBodyCreator = (text) => ({
   body: text,
 });
 
-export const dialogsReducer = (state, action) => {
+const initialState = {
+  dialogsData: [
+    { id: 1, name: "Lyana", avatar: "lyana.jpg" },
+    { id: 2, name: "Marina", avatar: "marina.png" },
+    { id: 3, name: "Tima", avatar: "tima.jpg" },
+    { id: 4, name: "Artem", avatar: "artem.png" },
+  ],
+  messagesData: [
+    { id: 1, message: "Good luck!" },
+    { id: 2, message: "See you soon" },
+    { id: 3, message: "Whats'up bro" },
+    { id: 4, message: "WTF" },
+  ],
+  newMessageBody: "",
+};
+
+export const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_BODY: {
       state.newMessageBody = action.body;
