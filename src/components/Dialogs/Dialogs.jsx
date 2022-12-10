@@ -9,7 +9,7 @@ const Dialogs = (props) => {
     <DialogItem
       name={dialog.name}
       id={dialog.id}
-      avatar={dialog.avatar}
+      avatar={dialog.photoUrl}
       key={dialog.id.toString()}
     />
   ));

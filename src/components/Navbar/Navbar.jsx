@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
 import Sidebar from "../Sidebar/Sidebar.jsx";
+import SidebarContainer from "../Sidebar/SidebarConainer";
 
 const Navbar = (props) => {
   return (
@@ -34,6 +35,14 @@ const Navbar = (props) => {
         <li className={s.item}>
           <NavLink
             className={(navData) => (navData.isActive ? s.active : s.item)}
+            to="/users"
+          >
+            Users
+          </NavLink>
+        </li>
+        <li className={s.item}>
+          <NavLink
+            className={(navData) => (navData.isActive ? s.active : s.item)}
             to="/music"
           >
             Music
@@ -49,7 +58,7 @@ const Navbar = (props) => {
         </li>
       </ul>
       <div>
-        <Sidebar sidebar={props.sidebar} />
+        <SidebarContainer />
       </div>
     </nav>
   );

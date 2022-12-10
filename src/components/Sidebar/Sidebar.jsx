@@ -1,4 +1,5 @@
 import s from "./Sidebar.module.css";
+import React from "react";
 
 const Sidebar = (props) => {
   const friends = props.sidebar.map((friend) => (

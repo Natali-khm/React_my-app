@@ -12,16 +12,16 @@ export const updateNewMessageBodyCreator = (text) => ({
 
 const initialState = {
   dialogsData: [
-    { id: 1, name: "Lyana", avatar: "lyana.jpg" },
-    { id: 2, name: "Marina", avatar: "marina.png" },
-    { id: 3, name: "Tima", avatar: "tima.jpg" },
-    { id: 4, name: "Artem", avatar: "artem.png" },
+    { id: 1, name: "Lyana", photoUrl: "lyana.jpg" },
+    { id: 2, name: "Marina", photoUrl: "marina.png" },
+    { id: 3, name: "Tima", photoUrl: "tima.jpg" },
+    { id: 4, name: "Artem", photoUrl: "artem.png" },
   ],
   messagesData: [
-    { id: 1, message: "Good luck!" },
-    { id: 2, message: "See you soon" },
-    { id: 3, message: "Whats'up bro" },
-    { id: 4, message: "WTF" },
+    { id: 1, message: "Hello!" },
+    { id: 2, message: "Whats'up bro" },
+    { id: 3, message: "What have you been up to?" },
+    { id: 4, message: "It's a long story" },
   ],
   newMessageBody: "",
 };
@@ -29,20 +29,20 @@ const initialState = {
 export const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_BODY: {
-      let stateCopy = { ...state };
-      stateCopy.newMessageBody = action.body;
-      return stateCopy;
+      return {
+        ...state,
+        newMessageBody: action.body,
+      };
     }
     case SEND_MESSAGE: {
-      let newMessage = {
-        id: 5,
-        message: state.newMessageBody,
+      return {
+        ...state,
+        messagesData: [
+          ...state.messagesData,
+          { id: 5, message: state.newMessageBody },
+        ],
+        newMessageBody: "",
       };
-      let stateCopy = { ...state };
-      stateCopy.messagesData = [...state.messagesData];
-      stateCopy.messagesData.push(newMessage);
-      stateCopy.newMessageBody = "";
-      return stateCopy;
     }
     default:
       return state;
