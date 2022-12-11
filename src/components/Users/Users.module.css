@@ -23,3 +23,7 @@
 .locationContainer {
   margin-left: auto;
 }
+
+.selectedPage {
+  font-weight: bold;
+}

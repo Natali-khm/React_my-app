@@ -5,20 +5,46 @@ import userPhoto from "../../assets/images/user.png";
 import { ReactReduxContext } from "react-redux";
 
 class User extends React.Component {
-  constructor(props) {
-    super(props),
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then((response) => {
-          this.props.setUsers(response.data.items);
-        });
+  componentDidMount() {
+    debugger;
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`
+      )
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+        this.props.setTotalUsersCount(response.data.totalCount);
+      });
   }
 
   render() {
+    let pagesCount = Math.ceil(
+      this.props.totalUsersCount / this.props.pageSize
+    );
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
+    debugger;
     return (
       <div className={s.container}>
-        <button onClick={this.getUsers}>Get users</button>
-
+        <div>
+          {pages.map((p) => {
+            return (
+              <span
+                key={p}
+                className={
+                  this.props.currentPage === p ? s.selectedPage : undefined
+                }
+                onClick={() => {
+                  this.props.setCurrentPage(p);
+                }}
+              >
+                {p}
+              </span>
+            );
+          })}
+        </div>
         {this.props.users.map((u) => (
           <div className={s.userContainer} key={u.id}>
             <div className={s.avatarContainer}>
@@ -61,62 +87,6 @@ class User extends React.Component {
   }
 }
 
-/* const User = (props) => {
-  const getUsers = () => {
-    if (!props.users.length) {
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then((response) => {
-          debugger;
-          props.setUsers(response.data.items);
-        });
-    }
-  };
-
-  return (
-    <div className={s.container}>
-      <button onClick={getUsers}>Get users</button>
-
-      {props.users.map((u) => (
-        <div className={s.userContainer} key={u.id}>
-          <div className={s.avatarContainer}>
-            <a href="#">
-              <img
-                src={u.photos.small ? u.photos.small : userPhoto}
-                className={s.avatar}
-              />
-            </a>
-            {u.followed ? (
-              <button
-                onClick={() => {
-                  props.unfollow(u.id);
-                }}
-              >
-                Follow
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  props.follow(u.id);
-                }}
-              >
-                Unfollow
-              </button>
-            )}
-          </div>
-          <div>
-            <a href="#">{u.name}</a>
-            <p> {u.status}</p>
-          </div>
-          <div className={s.locationContainer}>
-            <p>{ u.location.country }</p>
-            <p>{ u.location.city }</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}; */
 export default User;
 /* [
     {
