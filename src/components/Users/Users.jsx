@@ -17,14 +17,29 @@ class User extends React.Component {
       });
   }
 
+  onPageChanged = (p) => {
+    this.props.setCurrentPage(p);
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${p}`
+      )
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+      });
+  };
+
   render() {
     let pagesCount = Math.ceil(
       this.props.totalUsersCount / this.props.pageSize
     );
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
+    let pages = [
+      this.props.currentPage - 1,
+      this.props.currentPage,
+      this.props.currentPage + 1,
+    ];
+    /*     for (let i = 1; i <= pagesCount; i++) {
       pages.push(i);
-    }
+    } */
     debugger;
     return (
       <div className={s.container}>
@@ -33,11 +48,11 @@ class User extends React.Component {
             return (
               <span
                 key={p}
-                className={
+                className={`${
                   this.props.currentPage === p ? s.selectedPage : undefined
-                }
-                onClick={() => {
-                  this.props.setCurrentPage(p);
+                } ${s.page}`}
+                onClick={(e) => {
+                  this.onPageChanged(p);
                 }}
               >
                 {p}
