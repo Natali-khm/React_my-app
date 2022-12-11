@@ -3,7 +3,8 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 
 const Users = (props) => {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  /*   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+   */
   let firstPage = props.currentPage === 1 ? undefined : props.currentPage - 1;
   let pages = [firstPage, props.currentPage, props.currentPage + 1];
   return (
