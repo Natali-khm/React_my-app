@@ -21,7 +21,7 @@
   margin-top: 0;
 }
 
-.personalDataList {
+.profileInfo {
   list-style: none;
   padding: 0;
 }
@@ -32,4 +32,15 @@
 
 .descriptionBlock {
   padding: 10px;
+}
+
+.profileInfo li {
+  color: #626d7a;
+  font-size: 80%;
+}
+
+.profileInfo span {
+  color: #6196d3;
+  font-weight: bold;
+  font-size: 100%;
 }

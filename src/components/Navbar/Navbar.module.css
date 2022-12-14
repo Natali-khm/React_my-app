@@ -1,7 +1,6 @@
 .nav {
   grid-area: n;
   background-color: #a4b9cb;
-  border-radius: 10px;
 }
 
 .navList {
