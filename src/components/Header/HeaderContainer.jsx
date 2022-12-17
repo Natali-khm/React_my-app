@@ -9,7 +9,7 @@ class HeaderContainer extends React.Component {
   componentDidMount() {
     getAuth().then((response) => {
       if (!response.resultCode) {
-        let { email, id, login } = response.data.data;
+        let { email, id, login } = response.data;
         this.props.setAuthUserData(email, id, login);
       }
     });
