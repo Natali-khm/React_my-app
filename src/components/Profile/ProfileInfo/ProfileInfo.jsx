@@ -6,7 +6,6 @@ import caseImg from "../../../assets/images/briefcase.png";
 import userImg from "../../../assets/images/user.png";
 
 const ProfileInfo = (props) => {
-  debugger;
   if (!props.profile) return <Preloader />;
   const contacts = props.profile.contacts;
 

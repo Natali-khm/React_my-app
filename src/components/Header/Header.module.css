@@ -6,6 +6,8 @@
   margin-top: auto;
   margin-bottom: auto;
   padding: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logoBlock img {
