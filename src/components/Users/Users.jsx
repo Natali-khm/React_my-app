@@ -30,6 +30,7 @@ const Users = (props) => {
           );
         })}
       </div>
+
       {props.users.map((u) => (
         <div className={s.userContainer} key={u.id}>
           <div className={s.avatarContainer}>
@@ -39,17 +40,12 @@ const Users = (props) => {
                 className={s.avatar}
               />
             </NavLink>
+
             {u.followed ? (
               <button
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.toggleIsFollowingProgress(true, u.id);
-                  usersAPI.unfollow(u.id).then((response) => {
-                    if (!response.data.resultCode) {
-                      props.unfollow(u.id);
-                    }
-                    props.toggleIsFollowingProgress(false, u.id);
-                  });
+                  props.unfollow(u.id);
                 }}
               >
                 Unfollow
@@ -58,13 +54,7 @@ const Users = (props) => {
               <button
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.toggleIsFollowingProgress(true, u.id);
-                  usersAPI.follow(u.id).then((response) => {
-                    if (!response.resultCode) {
-                      props.follow(u.id);
-                    }
-                    props.toggleIsFollowingProgress(false, u.id);
-                  });
+                  props.follow(u.id);
                 }}
               >
                 Follow

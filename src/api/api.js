@@ -30,4 +30,8 @@ export const usersAPI = {
       .post(`follow/${userId}`, null)
       .then((response) => response.data);
   },
+
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`);
+  },
 };
