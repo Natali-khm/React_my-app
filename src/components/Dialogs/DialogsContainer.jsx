@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { withAuthRedirect } from "../../hoc/hoc";
 import {
   sendMessageCreator,
   updateNewMessageBodyCreator,
@@ -13,6 +15,10 @@ const mapStateToProps = (state) => {
   };
 };
 
+
+let authRedirectComponent = withAuthRedirect(Dialogs); 
+
+
 const mapDispatchToProps = (dispatch) => {
   return {
     updateNewMessageBody: (text) => {
@@ -24,5 +30,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-export default DialogsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(authRedirectComponent);
+
