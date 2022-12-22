@@ -4,6 +4,7 @@ import backgrImg from "../../../assets/images/banner.jpg";
 import Preloader from "../../../common/preloader/preloader";
 import caseImg from "../../../assets/images/briefcase.png";
 import userImg from "../../../assets/images/user.png";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
   if (!props.profile) return <Preloader />;
@@ -19,19 +20,25 @@ const ProfileInfo = (props) => {
       </li>
     ) : null;
   });
+
   return (
     <div>
-      <img className={s.backgroundImage} src={backgrImg} />
+      {/*       <img className={s.backgroundImage} src={backgrImg} />
+       */}{" "}
       <div className={s.descriptionBlock}>
-        <div className={s.avatarBlock}>
-          <img
-            className={s.avatarImage}
-            src={props.profile.photos.small || userImg}
-          />
+        <div>
+          <div className={s.avatarBlock}>
+            <img
+              className={s.avatarImage}
+              src={props.profile.photos.small || userImg}
+            />
+          </div>
+          <h2>{props.profile.fullName} </h2>
         </div>
 
+          <ProfileStatus status={'hello my friends'} />
+
         <div className={s.personalData}>
-          <h2>{props.profile.fullName} </h2>
           <ul className={s.profileInfo}>
             <li>
               about me: <span>{props.profile.aboutMe}</span>

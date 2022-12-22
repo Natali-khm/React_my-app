@@ -9,6 +9,7 @@ const instance = axios.create({
 });
 
 export const getAuth = () => {
+  debugger
   return instance.get("auth/me").then((response) => response.data);
 };
 

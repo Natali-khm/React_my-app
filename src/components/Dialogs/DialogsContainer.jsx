@@ -1,6 +1,5 @@
-import React from "react";
 import { connect } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/hoc";
 import {
   sendMessageCreator,
@@ -11,13 +10,8 @@ import Dialogs from "./Dialogs";
 const mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
-    isAuth : state.auth.isAuth
   };
 };
-
-
-let authRedirectComponent = withAuthRedirect(Dialogs); 
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -30,5 +24,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(authRedirectComponent);
-
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect
+)(Dialogs);
