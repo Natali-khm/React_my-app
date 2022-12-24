@@ -10,7 +10,7 @@ const Header = (props) => {
         SocialV
       </div>
       <div className={s.loginBlock}>
-        <NavLink to={"/login"}>{props.isAuth ? props.login : "Login"}</NavLink>
+        <NavLink to={"login"}>{props.isAuth ? props.login : "Login"}</NavLink>
       </div>
     </header>
   );

@@ -9,7 +9,6 @@ class HeaderContainer extends React.Component {
     this.props.authUser();
   }
   render() {
-    debugger
     return <Header {...this.props} />;
   }
 }

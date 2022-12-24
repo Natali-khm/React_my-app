@@ -12,9 +12,9 @@ const ProfileInfo = (props) => {
 
   let arr = Object.entries(contacts);
 
-  let result = arr.map((el) => {
+  let result = arr.map((el,ind) => {
     return el[1] ? (
-      <li>
+      <li key={ind}>
         {`${el[0]}: `}
         <a href="#">{el[1]}</a>
       </li>
@@ -36,7 +36,7 @@ const ProfileInfo = (props) => {
           <h2>{props.profile.fullName} </h2>
         </div>
 
-          <ProfileStatus status={'hello my friends'} />
+          <ProfileStatus status={props.status} updateStatus = {props.updateStatus}/>
 
         <div className={s.personalData}>
           <ul className={s.profileInfo}>
